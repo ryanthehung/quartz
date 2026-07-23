@@ -246,6 +246,7 @@ Prompt: "Hãy sử dụng tính năng Browse Use để truy cập vào mục 'C�
 
 ## 🔗 Liên Kết
 - Buổi trước: [[02-nhap-mon-cowork-claude]]
+- Buổi tiếp theo: [[04-tu-dong-hoa-cowork-claude]]
 - Thuật ngữ cần nhớ: **Schedule Task**[^1], **Cron Expression**[^2], **Project**[^3], **Custom Instructions**[^4], **Computer Use**[^5].
 
 ### 📖 Bảng Tra Cứu Thuật Ngữ (Glossary)

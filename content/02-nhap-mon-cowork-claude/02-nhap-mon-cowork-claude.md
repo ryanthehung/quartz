@@ -304,6 +304,7 @@ Mỗi slide bao gồm: Slide số, Tiêu đề, Nội dung chính (bullet points
 ---
 
 ## 🔗 Liên Kết
+- Buổi trước: [[01-cai-dat-cowork-claude]]
 - Buổi tiếp theo: [[03-nen-tang-cowork-claude]]
 - Thuật ngữ cần nhớ: **Token**[^1], **Context Window**[^2], **Connector**[^3], **Plugin**[^4], **LLM Model**[^5].
 

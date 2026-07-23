@@ -335,7 +335,7 @@ curl https://api.anthropic.com/v1/messages \
 - Tuân thủ các **Best Practices** về bảo mật và Prompt giúp bạn tiết kiệm tiền và đạt hiệu quả cao nhất.
 
 ## 🔗 Liên Kết
-- ⬅️ [[Buổi 5 — Làm Việc Với Các Tác Vụ Dài Khó]]
+- ⬅️ Buổi trước: [[05-chuyen-mon-hoa-cowork-claude]]
 - 📖 [[_glossary|Bảng thuật ngữ toàn khóa]]
 - 🚀 [[_cheatsheet|Cheatsheet tổng hợp lệnh/mẹo]]
 

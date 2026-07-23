@@ -313,8 +313,8 @@ youtube-analyzer/
 ---
 
 ## 🔗 Liên Kết
-- ⬅️ Buổi trước: [[Buổi 4 - Tự động hóa CoWork Claude]]
-- ➡️ Buổi sau: [[Buổi 6 - Bảo mật & Tối ưu hóa chi phí]]
+- ⬅️ Buổi trước: [[04-tu-dong-hoa-cowork-claude]]
+- ➡️ Buổi sau: [[06-mo-rong-cowork-claude]]
 - 📚 Từ điển thuật ngữ (Glossary):
 
 | Thuật ngữ | Tiếng Anh | Giải nghĩa |

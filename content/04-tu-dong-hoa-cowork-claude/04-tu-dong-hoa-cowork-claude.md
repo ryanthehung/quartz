@@ -330,8 +330,8 @@ Vui lòng xuất kết quả dưới dạng HTML Artifact để tôi có thể x
 ---
 
 ## 🔗 Liên Kết
-- ⬅️ Buổi trước: [[Buổi 3 - Kỹ năng giao tiếp với Claude]]
-- ➡️ Buổi sau: [[Buổi 5 - Chuyên môn hóa CoWork Claude]]
+- ⬅️ Buổi trước: [[03-nen-tang-cowork-claude]]
+- ➡️ Buổi sau: [[05-chuyen-mon-hoa-cowork-claude]]
 - 📚 Từ điển thuật ngữ (Glossary):
 
 | Thuật ngữ | Tiếng Anh | Giải nghĩa |

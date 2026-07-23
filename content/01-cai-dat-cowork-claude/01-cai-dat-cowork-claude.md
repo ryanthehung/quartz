@@ -255,7 +255,7 @@ Sau buổi học này, hãy ghi nhớ 3 điểm cốt lõi (Key takeaways):
 ---
 ## 🔗 Liên Kết
 - **Buổi trước:** [[00-gioi-thieu-khoa-hoc]]
-- **Buổi tiếp theo:** [[02-nhap-mon-tu-duy-ai]]
+- **Buổi tiếp theo:** [[02-nhap-mon-cowork-claude]]
 - **Tra cứu thuật ngữ:** Dưới cùng trang
 
 <br><br>

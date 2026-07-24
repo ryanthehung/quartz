@@ -6,9 +6,11 @@
 ## 📑 Mục lục
 - [[#🎯 Mục tiêu buổi học]]
 - [[#Phần 1 — Skill là gì?]]
+- [[#Khi nào nên và không nên sử dụng Skill]]
 - [[#Phần 2 — Cấu trúc Skill chi tiết]]
 - [[#Phần 3 — Tạo Skill cơ bản]]
 - [[#Phần 4 — Skill chuyên sâu]]
+- [[#Công thức tác chiến chuyên sâu]]
 - [[#Phần 5 — Xây dựng Kho Notebook/LM]]
 - [[#Phần 6 — Hệ sinh thái: Project + Skill + Notebook]]
 - [[#✏️ Bài Tập Thực Hành]]
@@ -49,6 +51,35 @@ Thay vì mỗi lần làm việc bạn phải nhắc lại hàng loạt quy tắ
 - **Tái sử dụng:** Viết 1 lần, dùng mãi mãi.
 - **Chia sẻ:** Bạn có thể copy thư mục Skill của mình gửi cho đồng nghiệp để họ sử dụng.
 - **Module hóa:** Giúp Agent không bị quá tải thông tin. Agent chỉ "học" kỹ năng nào cần thiết cho nhiệm vụ hiện tại.
+
+---
+
+## Khi nào nên và không nên sử dụng Skill
+
+### Tại sao cần biết điều này?
+Việc sử dụng Skill rất mạnh mẽ, nhưng không phải lúc nào cũng cần thiết. Lạm dụng Skill cho các công việc quá đơn giản có thể làm giảm tính linh hoạt và tiêu tốn thời gian thiết lập không đáng có.
+
+### Bảng Decision Matrix (Nên và Không Nên)
+| # | Nên dùng Skill (Nhiệm vụ lặp lại & cố định) | Không nên dùng Skill (Nhiệm vụ một lần & ngẫu hứng) |
+|---|--------------------------------------------|----------------------------------------------------|
+| ① | Viết blog hàng tuần cùng tone giọng | Hỏi 1 câu đơn giản hoặc kiến thức phổ thông |
+| ② | Tạo báo cáo định kỳ theo format chuẩn | Brainstorm ý tưởng tự do, không theo khuôn mẫu |
+| ③ | Dịch thuật văn bản với từ điển chuyên ngành | Dịch một đoạn chat ngắn gọn, nhanh chóng |
+| ④ | Đánh giá code theo chuẩn Coding Convention | Debug lỗi ngẫu nhiên, tìm lỗi tức thời |
+| ⑤ | Xử lý dữ liệu hàng loạt từ form khách hàng | Tra cứu nhanh thông tin từ một file PDF duy nhất |
+
+### Sơ đồ Decision Tree (Ra quyết định)
+```mermaid
+flowchart LR
+    A["Nhiệm vụ mới"] --> B["Có lặp lại<br>nhiều lần?"]
+    B -->|Có| C["Cần format<br>chuẩn?"]
+    B -->|Không| D["Không dùng<br>Skill"]
+    C -->|Có| E["Dùng Skill"]
+    C -->|Không| D
+```
+
+> [!WARNING]  
+> **Sai lầm phổ biến:** Nhiều người cố gắng "đóng gói" mọi thứ thành Skill. Điều này khiến Workspace trở nên cồng kềnh. Hãy chỉ tạo Skill khi bạn thực sự tốn nhiều thời gian lặp đi lặp lại một quy trình giống hệt nhau!
 
 ---
 
@@ -149,6 +180,48 @@ Một thư mục Skill SEO hoàn chỉnh:
 - `examples/bai-viet-top-1.md`: Một bài viết mẫu đã từng lên Top 1 Google.
 - `resources/danh-sach-tu-khoa-cam.txt`: Danh sách các từ ngữ không được phép sử dụng.
 Khi chạy Skill này, AI sẽ tổng hợp mọi thông tin lại để viết ra một bài viết chuẩn SEO hoàn hảo.
+
+---
+
+## Công thức tác chiến chuyên sâu
+
+### Tại sao cần biết điều này?
+Khi bạn cần tự động hóa một quy trình phức tạp có nhiều điều kiện hoặc muốn các Skill tương tác với nhau, bạn cần nâng cấp lên các kiến trúc Skill chuyên sâu.
+
+### Các mẫu thiết kế (Advanced Skill patterns)
+- **Conditional logic trong SKILL.md:** Bạn có thể thêm các quy tắc if/else trực tiếp vào file. Ví dụ: *"Nếu văn bản dưới 100 từ, trả về dạng tóm tắt ngắn. Ngược lại, trả về bảng phân tích chi tiết."*
+- **Multi-step Skill (Chaining):** Một Skill có thể được thiết kế để gọi hoặc kết hợp với Skill khác, tạo thành một chuỗi (chain) xử lý liên hoàn.
+- **Skill kết hợp scripts/:** Sức mạnh thực sự nằm ở việc kết hợp file Markdown hướng dẫn và mã nguồn lập trình. Ví dụ, một Python script chịu trách nhiệm phân tích dữ liệu khô khan, còn Skill sẽ lấy kết quả đó để format thành output thân thiện với người đọc.
+
+### Ví dụ hoàn chỉnh: Skill 'Financial Report Analyzer'
+Trong thư mục của kỹ năng này, bạn có:
+- Một script Python tự động đọc và tính toán các chỉ số từ file CSV.
+- Một file `SKILL.md` hướng dẫn AI: *"Chạy script để lấy số liệu, sau đó sử dụng các mẫu câu tài chính chuyên nghiệp để viết báo cáo thành định dạng Markdown."*
+
+### Template Skill chuyên sâu hoàn chỉnh
+```yaml
+---
+name: Financial Report Analyzer
+description: Phân tích file CSV và tạo báo cáo tài chính Markdown
+version: 2.0
+dependencies: ["python3", "pandas"]
+---
+```
+**Sections bên trong `SKILL.md`:**
+1. **Trigger:** Khi nào thì kích hoạt Skill này.
+2. **Logic Rules:** Các quy tắc điều kiện (If/Else).
+3. **Execution Steps:** Trình tự gọi các script và lấy dữ liệu.
+4. **Formatting:** Định dạng đầu ra cuối cùng.
+
+### Bảng so sánh Skill cơ bản và Skill chuyên sâu
+
+| # | Tiêu chí | Skill Cơ Bản | Skill Chuyên Sâu |
+|---|----------|--------------|------------------|
+| ① | **Cấu trúc** | Chỉ có `SKILL.md` | Có thêm `scripts/`, `examples/` |
+| ② | **Khả năng tự động hóa**| Xử lý text đơn thuần | Tương tác với dữ liệu và hệ thống |
+| ③ | **Độ phức tạp** | Rất dễ tạo | Cần kiến thức về lập trình / logic |
+| ④ | **Phạm vi áp dụng** | Viết email, dịch thuật | Phân tích data, báo cáo tự động |
+| ⑤ | **Thời gian triển khai** | 5-10 phút | Vài giờ đến vài ngày |
 
 ---
 

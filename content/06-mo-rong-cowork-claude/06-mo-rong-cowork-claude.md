@@ -6,6 +6,7 @@
 - [[#Phần 2 — MCP (Model Context Protocol)]]
 - [[#Phần 3 — Case Study Viết sách với CoWork]]
 - [[#Phần 4 — Case Study Kiếm tiền với CoWork]]
+- [[#Phần mới — Các Năng Lực Thực Thi Khác Của CoWork (Bài 40)]]
 - [[#Phần 5 — Best Practices Mẹo]]
 - [[#Phần 6 — Tổng kết Lộ trình tiếp theo]]
 - [[#✏️ Bài Tập Thực Hành]]
@@ -234,6 +235,53 @@ Kỹ năng điều khiển AI là một "Superpower" (Siêu năng lực) trong t
 
 ---
 
+## Phần mới — Các Năng Lực Thực Thi Khác Của CoWork (Bài 40)
+
+Tại sao cần biết điều này? CoWork không chỉ giới hạn ở việc trò chuyện bằng văn bản. Nó còn sở hữu nhiều năng lực mạnh mẽ khác giúp bạn xử lý đa dạng các loại công việc phức tạp trong thực tế.
+
+### 1. Vision (Thị giác)
+Claude có khả năng đọc ảnh, phân tích screenshot (ảnh chụp màn hình), và nhận diện UI (giao diện người dùng) một cách xuất sắc.
+- **Ví dụ:** Bạn upload ảnh chụp màn hình một đoạn code báo lỗi → Claude phân tích và đề xuất giải pháp fix lỗi ngay lập tức.
+
+### 2. Code Execution (Thực thi mã)
+CoWork có thể viết và chạy code Python/JS trực tiếp trong **sandbox** (môi trường thử nghiệm an toàn).
+- **Ví dụ:** Yêu cầu Claude viết một script xử lý và gộp 1000 file CSV lại với nhau, sau đó chạy thử để kiểm tra kết quả ngay trong phiên làm việc.
+
+### 3. Multi-modal Input (Đầu vào đa phương tiện)
+Bạn có thể kết hợp text (văn bản) + ảnh + file trong cùng 1 prompt để cung cấp ngữ cảnh đầy đủ nhất.
+- **Ví dụ:** Upload một ảnh chụp bản vẽ tay (wireframe) + mô tả chi tiết bằng text → Claude tạo ra mã HTML hoàn chỉnh cho giao diện đó.
+
+### 4. Long Context (Ngữ cảnh dài)
+Khả năng xử lý tài liệu khổng lồ, lên tới 200K+ tokens.
+- **Ví dụ:** Upload một cuốn sách 300 trang (dạng PDF) → Claude có thể đọc toàn bộ, tóm tắt và trả lời chính xác bất kỳ câu hỏi nào về nội dung sách.
+
+### 5. Structured Output (Đầu ra có cấu trúc)
+Claude có thể ép buộc dữ liệu trả về theo đúng định dạng chuẩn như JSON, XML, CSV, hoặc Markdown tables.
+- **Ví dụ:** Yêu cầu output một file JSON chuẩn xác định dạng để thực hiện tích hợp API (API integration) vào hệ thống của công ty.
+
+### Bảng tổng hợp 5 năng lực
+
+| # | Năng lực (Tiếng Anh) | Mô tả | Use Case (Ứng dụng) | Giới hạn |
+|---|----------------------|-------|---------------------|----------|
+| 1 | Vision | Phân tích hình ảnh, biểu đồ | Đọc hóa đơn, convert UI sang code | Không đọc được ảnh quá mờ |
+| 2 | Code Execution | Viết & chạy code cục bộ | Xử lý dữ liệu lớn, tự động hóa | Giới hạn thư viện hỗ trợ trong sandbox |
+| 3 | Multi-modal Input | Kết hợp ảnh, file, text | Xây dựng prompt đa chiều | Dung lượng file upload tối đa theo gói |
+| 4 | Long Context | Nhớ ngữ cảnh dài (200K) | Phân tích sách, tài liệu pháp lý | Thời gian phản hồi sẽ lâu hơn |
+| 5 | Structured Output | Trả kết quả theo cấu trúc chuẩn | Trích xuất dữ liệu, API integration | Cần prompt định dạng kỹ càng |
+
+### Sơ đồ Mermaid: Các năng lực mở rộng
+
+```mermaid
+flowchart LR
+    A["🧠 CoWork Core<br>(Lõi AI)"] --> B["👁️ Vision<br>(Thị giác)"]
+    A --> C["⚡ Code Execution<br>(Thực thi mã)"]
+    A --> D["📦 Multi-modal<br>(Đa phương tiện)"]
+    A --> E["📚 Long Context<br>(Ngữ cảnh dài)"]
+    A --> F["📊 Structured Output<br>(Đầu ra chuẩn)"]
+```
+
+---
+
 ## Phần 5 — Best Practices & Mẹo
 
 ### Tối ưu chi phí
@@ -336,8 +384,10 @@ curl https://api.anthropic.com/v1/messages \
 
 ## 🔗 Liên Kết
 - ⬅️ Buổi trước: [[05-chuyen-mon-hoa-cowork-claude]]
+- ➡️ Buổi tiếp theo: [[07-ung-dung-doanh-nghiep]]
 - 📖 [[_glossary|Bảng thuật ngữ toàn khóa]]
 - 🚀 [[_cheatsheet|Cheatsheet tổng hợp lệnh/mẹo]]
 
 ---
 *Cảm ơn bạn đã tham gia khóa học Claude CoWork Agent Mastery!*
+

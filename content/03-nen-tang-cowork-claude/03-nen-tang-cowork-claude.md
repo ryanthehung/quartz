@@ -4,8 +4,14 @@
 - [[#🎯 Mục tiêu buổi học]]
 - [[#Phần 1 — Schedule Task Tự động hóa theo lịch]]
 - [[#Phần 2 — Cú pháp & Cấu hình Schedule]]
+- [[#Schedule Task bằng Prompt (Bài 13)]]
 - [[#Phần 3 — Project trong CoWork]]
 - [[#Phần 4 — Đặc tính Project Custom Instructions & Knowledge]]
+- [[#Case Study 1 — Tạo Project Hộp Thông Tin Khách Hàng (Bài 16)]]
+- [[#Case Study 2 — Tạo Project Soạn Giá & Hợp Đồng Online (Bài 17)]]
+- [[#Case Study 3 — Tạo Project Thiết Kế Slide Động Mẫu (Bài 18)]]
+- [[#Case Study 4 — Tạo Project Thiết Kế Video Ads Động (Bài 19)]]
+- [[#Các lưu ý khi làm việc với Project (Bài 21)]]
 - [[#Phần 5 — Computer Use]]
 - [[#Phần 6 — Browse Use & Screen Interaction]]
 - [[#✏️ Bài Tập Thực Hành]]
@@ -82,6 +88,34 @@ Ngoài hẹn giờ, bạn có thể thiết lập:
 
 ---
 
+## Schedule Task bằng Prompt (Bài 13)
+
+### Tại sao cần biết điều này?
+Việc viết biểu thức Cron có thể phức tạp đối với nhiều người. Thay vì sử dụng **Cron Expression** (Biểu thức Cron) đầy những con số và dấu sao, bạn có thể thiết lập lịch trình bằng **Natural Language** (Ngôn ngữ tự nhiên) đơn giản như khi trò chuyện.
+
+### 1. Dùng Prompt thiết lập Schedule
+Bạn chỉ cần đưa ra yêu cầu thời gian bằng ngôn ngữ tự nhiên, hệ thống sẽ tự động hiểu và lên lịch.
+
+**5 ví dụ Prompt mẫu:**
+1. "Mỗi sáng thứ 2 lúc 8h, gửi cho tôi bản tóm tắt email quan trọng."
+2. "Chạy tác vụ này vào 15:30 thứ 6 hàng tuần."
+3. "Nhắc tôi kiểm tra server mỗi 2 tiếng một lần vào ngày làm việc."
+4. "Gửi báo cáo doanh thu vào ngày 1 mỗi tháng lúc 9h sáng."
+5. "Lặp lại lệnh này vào 10:00 sáng và 4:00 chiều mỗi ngày."
+
+### 2. So sánh: Cron vs Natural Language Prompt
+
+| # | Phương pháp | Ưu điểm | Nhược điểm |
+|---|---|---|---|
+| 1 | **Cron Expression** | Cực kỳ chính xác, hỗ trợ nhiều quy tắc thời gian phức tạp. | Khó học, dễ viết sai cú pháp đối với người mới. |
+| 2 | **Natural Language Prompt** | Dễ viết, thân thiện với người dùng, giống như giao tiếp thông thường. | Có thể AI không hiểu chính xác 100% nếu viết câu quá mập mờ. |
+
+> [!TIP]
+> **Khi nào nên dùng gì?**
+> Dùng **Natural Language Prompt** cho các lịch trình đơn giản hàng ngày/tuần. Dùng **Cron Expression** khi bạn cần sự chính xác tuyệt đối ở cấp độ hệ thống, hoặc các lịch phức tạp (ví dụ: ngày 15 của tháng chẵn).
+
+---
+
 ## Phần 3 — Project trong CoWork
 
 ### Tại sao cần biết điều này?
@@ -146,6 +180,142 @@ Khi bạn hỏi bất cứ điều gì, AI sẽ ưu tiên lục tìm trong Knowl
 - **Custom Instructions:** "Viết bài chuẩn SEO, độ dài khoảng 300 chữ, luôn có Call-to-action."
 - **Knowledge Base:** Upload file `brand_voice.pdf` (Giọng văn thương hiệu) và `san_pham_2026.xlsx` (Bảng giá và thông tin).
 - **Kết quả:** Từ nay, bạn chỉ cần chat "Viết bài cho đôi giày chạy bộ mới", AI sẽ tự động biết giá bao nhiêu, viết giọng điệu thế nào!
+
+---
+
+## Case Study 1 — Tạo Project Hộp Thông Tin Khách Hàng (Bài 16)
+
+### Tại sao cần biết điều này?
+Biến AI thành một hệ thống **CRM** (Customer Relationship Management - Quản trị quan hệ khách hàng) thu nhỏ, giúp bạn tự động chuẩn hóa thông tin khách hàng lộn xộn thành định dạng sạch sẽ.
+
+### 1. Thông tin Project
+- **Mục tiêu:** Tạo hệ thống CRM mini trong CoWork.
+- **Custom Instructions:** Agent đóng vai trợ lý quản lý khách hàng.
+- **Knowledge Base:** Upload template thông tin KH mẫu.
+
+### 2. Workflow & Kết quả
+- **Workflow:** Nhập thông tin KH lộn xộn → Agent tự tạo profile → Lưu vào format chuẩn.
+- **Kết quả mong đợi:** Bảng thông tin KH chuẩn, chính xác.
+
+### 3. Prompt mẫu hoàn chỉnh
+```text
+Bạn là Trợ lý Quản lý Khách hàng xuất sắc. Nhiệm vụ của bạn là lấy đoạn thông tin lộn xộn dưới đây do sales cung cấp, và điền vào Template trong Knowledge Base.
+Nếu thông tin nào thiếu, hãy ghi "N/A" (Chưa có).
+Tuyệt đối không tự bịa ra thông tin.
+
+Thông tin khách hàng:
+[Dán đoạn chat của Sales vào đây]
+```
+
+---
+
+## Case Study 2 — Tạo Project Soạn Giá & Hợp Đồng Online (Bài 17)
+
+### Tại sao cần biết điều này?
+Soạn thảo báo giá và hợp đồng thủ công rất dễ sai sót. Bằng cách thiết lập sẵn **Templates** (Biểu mẫu), AI có thể tự động điền các thông tin quan trọng vào đúng vị trí một cách chính xác và thần tốc.
+
+### 1. Thông tin Project
+- **Mục tiêu:** Tự động soạn báo giá + hợp đồng từ thông tin đầu vào.
+- **Custom Instructions:** Agent đóng vai trợ lý pháp lý/sales chuyên nghiệp.
+- **Knowledge Base:** Upload mẫu hợp đồng, bảng giá gốc.
+
+### 2. Workflow & Kết quả
+- **Workflow:** Nhập tên dự án + khách hàng → Agent tạo báo giá → Tạo hợp đồng.
+- **Ví dụ output:** Bảng báo giá và nội dung hợp đồng trình bày bằng định dạng markdown.
+
+### 3. Prompt mẫu hoàn chỉnh
+```text
+Tôi có một khách hàng mới tên là [Tên Khách Hàng] muốn làm dự án [Tên Dự Án].
+Dựa vào Bảng giá trong Knowledge Base, hãy lập cho tôi một bảng báo giá các hạng mục cần thiết.
+Sau khi có báo giá, hãy lấy Mẫu hợp đồng, điền tên khách và tổng tiền vào, xuất ra định dạng Markdown rõ ràng.
+```
+
+---
+
+## Case Study 3 — Tạo Project Thiết Kế Slide Động Mẫu (Bài 18)
+
+### Tại sao cần biết điều này?
+Chuẩn bị nội dung cho một buổi thuyết trình thường mất hàng giờ. Agent có thể giúp bạn tạo ra một **Outline** (Dàn ý) và **Speaker Notes** (Ghi chú diễn giả) logic chỉ trong vài phút.
+
+### 1. Thông tin Project
+- **Mục tiêu:** Agent tạo cấu trúc slide presentation từ brief.
+- **Custom Instructions:** Agent đóng vai designer/presentation expert xuất sắc.
+
+### 2. Workflow & Kết quả
+- **Workflow:** Nhập chủ đề + đối tượng → Agent tạo outline → Nội dung từng slide → Speaker notes.
+- **Ví dụ output:** Outline slide chuyên nghiệp cho từng trang.
+
+### 3. Prompt mẫu hoàn chỉnh
+```text
+Hãy tạo cấu trúc cho một bài thuyết trình 10 trang slide về chủ đề [Chủ đề của bạn].
+Đối tượng khán giả là [Khán giả của bạn].
+Với mỗi slide, hãy cho tôi:
+1. Tiêu đề slide.
+2. 3 gạch đầu dòng nội dung chính.
+3. Ghi chú diễn giả (Speaker notes) ngắn gọn để tôi biết phải nói gì.
+```
+
+---
+
+## Case Study 4 — Tạo Project Thiết Kế Video Ads Động (Bài 19)
+
+### Tại sao cần biết điều này?
+Quá trình Brainstorming (Lên ý tưởng) kịch bản video tốn rất nhiều chất xám. AI có thể đóng vai trò như một **Creative Director** (Giám đốc sáng tạo) để cung cấp **Storyboard** (Kịch bản phân cảnh) rõ ràng và khả thi.
+
+### 1. Thông tin Project
+- **Mục tiêu:** Agent tạo kịch bản + storyboard video quảng cáo.
+- **Custom Instructions:** Agent đóng vai creative director giàu kinh nghiệm.
+
+### 2. Workflow & Kết quả
+- **Workflow:** Nhập sản phẩm + USP → Agent tạo concept → Script → Storyboard.
+- **Ví dụ output:** Bảng storyboard gồm Cảnh, Hình ảnh, Lời thoại, Âm nhạc, Thời lượng.
+
+### 3. Prompt mẫu hoàn chỉnh
+```text
+Sản phẩm của tôi là [Tên sản phẩm] với điểm mạnh lớn nhất (USP) là [USP của bạn].
+Hãy tạo một kịch bản Video Ads thời lượng [30s/60s].
+Trình bày kết quả dưới dạng bảng Storyboard có 5 cột: Cảnh, Hình ảnh, Lời thoại, Âm nhạc, và Thời lượng.
+```
+
+---
+
+## Các lưu ý khi làm việc với Project (Bài 21)
+
+### Tại sao cần biết điều này?
+Project rất mạnh mẽ nhưng nếu quản lý không tốt, dữ liệu quá lớn hoặc hướng dẫn mâu thuẫn sẽ làm AI bị nhầm lẫn, sinh ra kết quả sai lệch hoặc chậm trễ.
+
+### 1. 10 Tips & Pitfalls khi dùng Project
+
+| # | Lời khuyên / Sai lầm | Phân loại | Giải thích chi tiết |
+|---|---|---|---|
+| 1 | Đặt tên Project rõ ràng, cụ thể. | ✅ Tip | Giúp dễ tìm lại và phân loại bối cảnh công việc. |
+| 2 | Cập nhật Knowledge Base thường xuyên. | ✅ Tip | Đảm bảo AI luôn tiếp cận thông tin mới nhất của công ty. |
+| 3 | Viết Custom Instructions ngắn gọn, có cấu trúc. | ✅ Tip | Dùng gạch đầu dòng thay vì một đoạn văn dài lê thê. |
+| 4 | Chia nhỏ Project theo từng phòng ban/dự án. | ✅ Tip | Tăng độ chính xác, tránh lẫn lộn dữ liệu giữa các bộ phận. |
+| 5 | Upload file có tên dễ hiểu (VD: `chinh_sach_2026.pdf`). | ✅ Tip | Giúp AI dễ tham chiếu và trích xuất tên file nếu cần. |
+| 6 | Nhồi nhét mọi tài liệu của công ty vào 1 Project. | ❌ Pitfall | Làm chậm AI, tốn Context Window và dễ lẫn lộn thông tin. |
+| 7 | Viết Custom Instructions quá chung chung. | ❌ Pitfall | "Hãy làm tốt nhé" không giúp AI hiểu được yêu cầu cụ thể. |
+| 8 | Quên xóa tài liệu cũ, hết hạn. | ❌ Pitfall | AI có thể dựa vào giá bán của năm ngoái để làm báo giá năm nay. |
+| 9 | Lẫn lộn nội dung giữa các cuộc hội thoại (Chats) trong Project. | ❌ Pitfall | Nếu 1 Project có nhiều việc, hãy mở hội thoại mới (New Chat). |
+| 10 | Không kiểm tra lại thông tin (Hallucination). | ❌ Pitfall | Đôi khi AI tự suy diễn thông tin không có trong file, luôn cần review. |
+
+### 2. Giới hạn của Project
+- **Số lượng Knowledge files:** Thường có giới hạn số file được tải lên tùy phiên bản.
+- **Kích thước & Token Limit:** Quá nhiều dữ liệu làm AI "chậm chạp", quá tải Context Window hoặc báo lỗi.
+
+### 3. Best Practices
+- **Tổ chức Knowledge Base:** Tạo quy tắc đặt tên file đồng nhất (VD: `[Năm]_[Bộ Phận]_[Tên File].pdf`).
+- **Viết Instructions:** Dùng cấu trúc: Vai trò (Role) → Nhiệm vụ chính (Tasks) → Giới hạn (Constraints) → Định dạng đầu ra (Output format).
+
+> [!WARNING]
+> **Những sai lầm phổ biến nhất:**
+> Rất nhiều người viết Custom Instructions mâu thuẫn nhau. Ví dụ: Dòng trên bảo "Luôn trả lời thật ngắn gọn", dòng dưới lại ghi "Hãy giải thích chi tiết mọi thứ". Điều này sẽ làm AI bối rối. Hãy đọc lại luật lệ để đảm bảo tính nhất quán!
+
+> [!TIP]
+> **Checklist trước khi deploy Project cho team:**
+> - [ ] Đã upload đủ tài liệu cần thiết nhất chưa?
+> - [ ] Đã xóa/ẩn đi những thông tin bảo mật không dành cho AI chưa?
+> - [ ] Đã thử nghiệm bằng 3-5 prompt xem AI trả lời đúng phong cách mong muốn chưa?
 
 ---
 

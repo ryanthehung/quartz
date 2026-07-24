@@ -9,6 +9,9 @@
 - [[#Phần 2 — Kỹ thuật Prompt Engineering nâng cao]]
 - [[#Phần 3 — Tự động hóa nâng cao: Multi-step Workflow]]
 - [[#Phần 4 — Live Artifacts]]
+- [[#Case Study 1 — Tạo Live Artifact cho Video YouTube (Bài 23)]]
+- [[#Case Study 2 — Tạo Live Artifact Quản Lý Báo Cáo Tài Chính (Bài 24)]]
+- [[#Case Study 3 — Tạo Live Artifact Quản Lý Dự Án Bất Động Sản (Bài 25)]]
 - [[#Phần 5 — Bảng điều khiển & Dashboard]]
 - [[#Phần 6 — Agent trên Smartphone]]
 - [[#✏️ Bài Tập Thực Hành]]
@@ -182,6 +185,62 @@ Hãy thử gõ câu lệnh sau:
 "Hãy tạo một file HTML đơn giản, phong cách hiện đại cho một trang web bán giày thể thao. Bao gồm tiêu đề, 1 nút mua hàng và 3 ảnh sản phẩm thay thế (placeholder). Hiển thị dưới dạng React hoặc HTML artifact."
 
 Claude sẽ không chỉ trả về chữ, mà sẽ mở ra một cửa sổ hiển thị một trang web thực thụ. Bạn có thể nhấn nút, xem màu sắc... Nếu không thích, bạn bảo "Đổi nút mua hàng thành màu đỏ", trang web sẽ lập tức cập nhật.
+
+### Case Study 1 — Tạo Live Artifact cho Video YouTube (Bài 23)
+
+Tại sao cần biết điều này? Kịch bản video không chỉ là một khối văn bản dài. Nó cần chia thời gian, phân cảnh, và ghi chú chi tiết. **Artifact** dạng bảng tương tác sẽ giúp bạn dễ dàng theo dõi và điều chỉnh nhịp điệu video.
+
+**Mục tiêu:** Tạo kịch bản video YouTube với nhịp điệu chuyên nghiệp.
+**Artifact HTML:** Tạo bảng kịch bản interactive gồm các cột (Timestamp, Cảnh, Lời thoại, B-roll, Ghi chú).
+
+**Prompt mẫu:**
+> "Hãy viết kịch bản video YouTube dài 10 phút với chủ đề 'Hướng dẫn dùng CoWork cho người mới'. Xuất kết quả dưới dạng Artifact HTML. Trong HTML, tạo một bảng tương tác với các cột: Timestamp (Thời gian), Cảnh (Hình ảnh/Góc máy), Lời thoại (Người nói), B-roll (Video minh họa), Ghi chú. Thiết kế giao diện hiện đại, dễ đọc."
+
+**Workflow (Quy trình làm việc):**
+- ① Nhập chủ đề video
+- ② Agent tạo hook (câu mở đầu thu hút)
+- ③ Outline (Dàn ý)
+- ④ Script (Kịch bản) chi tiết
+- ⑤ Xuất artifact HTML
+
+> [!TIP]
+> **Cách iterate (chỉnh sửa lặp) artifact video script:** Sau khi có bảng kịch bản, bạn có thể yêu cầu Claude "Hãy làm cho lời thoại ở phút thứ 2 hài hước hơn" hoặc "Thêm một cột âm nhạc (Music) vào bảng". Claude sẽ cập nhật trực tiếp trên Artifact mà không cần tạo mới toàn bộ.
+
+### Case Study 2 — Tạo Live Artifact Quản Lý Báo Cáo Tài Chính (Bài 24)
+
+Tại sao cần biết điều này? Đọc số liệu thô rất nhàm chán. Biến chúng thành **Dashboard** (Bảng điều khiển) tài chính trực quan giúp bạn nắm bắt tình hình kinh doanh trong nháy mắt.
+
+**Mục tiêu:** Dashboard tài chính real-time (thời gian thực) trong artifact.
+**Artifact HTML:** Bảng báo cáo với các chỉ số quan trọng (Doanh thu, Chi phí, Lợi nhuận, So sánh tháng trước) và kèm theo biểu đồ **SVG** đơn giản (bar chart hoặc pie chart).
+
+**Prompt mẫu:**
+> "Tạo artifact HTML dashboard tài chính cho Q3/2026. Hiển thị các thẻ chỉ số chính: Doanh thu, Chi phí, Lợi nhuận, và % thay đổi so với tháng trước. Vẽ thêm một biểu đồ cột (Bar chart) bằng SVG thể hiện doanh thu 3 tháng. Thiết kế chuyên nghiệp, màu sắc phân biệt rõ ràng lãi/lỗ."
+
+**Workflow (Quy trình làm việc):**
+- ① Upload file CSV chứa dữ liệu tài chính
+- ② Agent phân tích số liệu
+- ③ Tạo dashboard artifact hiển thị kết quả
+
+> [!WARNING]
+> Có giới hạn về xử lý dữ liệu lớn trong artifact. Nếu file CSV của bạn quá nặng (hàng chục nghìn dòng), trình duyệt có thể bị chậm khi hiển thị. Hãy yêu cầu Claude tổng hợp dữ liệu trước khi vẽ biểu đồ.
+
+### Case Study 3 — Tạo Live Artifact Quản Lý Dự Án Bất Động Sản (Bài 25)
+
+Tại sao cần biết điều này? Quản lý khách hàng và dự án BĐS cần sự linh hoạt. Một bảng **Kanban** trực quan ngay trong khung chat giúp bạn thao tác nhanh hơn nhiều so với việc mở Excel.
+
+**Mục tiêu:** Bảng quản lý tiến độ dự án BĐS interactive (có tính tương tác).
+**Artifact HTML:** Bảng Kanban đơn giản với các cột: Tiếp nhận → Đang xử lý → Hoàn thành. Hiển thị thông tin: Tên căn hộ/lô đất, Giá, Trạng thái, Khách hàng quan tâm.
+
+**Prompt mẫu:**
+> "Hãy tạo một Artifact HTML hiển thị bảng Kanban quản lý dự án Bất Động Sản. Bảng có 3 cột: Tiếp nhận, Đang xử lý, Hoàn thành. Thêm sẵn 5 thẻ (card) mẫu hiển thị: Tên căn hộ, Giá, và Tên khách hàng quan tâm. Cho phép giao diện trông giống Trello với CSS hiện đại."
+
+**Workflow (Quy trình làm việc):**
+- ① Nhập danh sách BĐS hoặc khách hàng
+- ② Agent tạo bảng quản lý
+- ③ Cập nhật trạng thái bằng cách yêu cầu Claude ("Chuyển Căn A1 sang Đang xử lý")
+
+> [!TIP]
+> Bạn có thể dùng artifact này thay cho Excel quản lý để thao tác nhanh. Khi cần lưu trữ, chỉ cần yêu cầu Claude xuất lại toàn bộ dữ liệu hiện tại ra định dạng CSV để tải về máy.
 
 ---
 

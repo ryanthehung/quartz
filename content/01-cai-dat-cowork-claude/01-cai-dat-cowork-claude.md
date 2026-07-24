@@ -5,6 +5,8 @@
 - [[#Phần 1 — Claude CoWork là gì?]]
 - [[#Phần 2 — Tạo tài khoản Anthropic]]
 - [[#Phần 3 — Đăng nhập & Làm quen giao diện]]
+- [[#Xử lý lỗi không xuất hiện CoWork]]
+- [[#Định lý cốt lõi phân tách]]
 - [[#Phần 4 — Nâng cấp tài khoản Pro]]
 - [[#Phần 5 — Thiết lập ban đầu]]
 - [[#Phần 6 — Sử dụng cơ bản]]
@@ -109,6 +111,77 @@ flowchart LR
 
 > [!TIP]  
 > **Phím tắt thần thánh**: Thay vì dùng chuột bấm nút "Gửi", hãy sử dụng phím `Enter` để gửi tin nhắn. Nếu bạn muốn xuống dòng trong khung nhập liệu mà không gửi đi, hãy nhấn `Shift + Enter`.
+
+---
+
+## Xử lý lỗi không xuất hiện CoWork
+
+### Tại sao cần biết điều này?
+Đôi khi sau khi cài đặt, giao diện CoWork lại không hiển thị. Biết cách khắc phục sớm giúp bạn không bị gián đoạn và nhanh chóng bước vào trải nghiệm học tập, làm việc.
+
+### Lỗi phổ biến
+- **Không hiện CoWork:** Thường do trình duyệt lưu cache cũ, bị AdBlock chặn, hoặc do tường lửa (firewall) của công ty.
+- **Lỗi 'Unable to connect':** Nguyên nhân chính là do đường truyền internet không ổn định, lỗi proxy hoặc xung đột VPN.
+- **Lỗi 'Session expired':** Phiên đăng nhập hết hạn, bạn cần xóa cookie và đăng nhập lại.
+- **Lỗi quyền truy cập:** Hãy kiểm tra lại xem tài khoản của bạn đang là bản Free hay Pro. Đôi khi một số tính năng đòi hỏi quyền cao hơn.
+
+### Bảng troubleshooting các lỗi thường gặp
+| # | Lỗi (Error) | Nguyên nhân (Cause) | Cách xử lý (Solution) |
+|---|-------------|---------------------|-----------------------|
+| ① | Không hiện CoWork | Cache trình duyệt / AdBlock | Xóa cache (Ctrl+F5) hoặc tắt tiện ích chặn quảng cáo |
+| ② | Unable to connect | Mạng, VPN, Proxy | Tắt VPN, kiểm tra lại kết nối internet |
+| ③ | Session expired | Cookie quá hạn | Xóa cookie trình duyệt và đăng nhập lại |
+| ④ | Quyền truy cập bị từ chối | Tài khoản Free giới hạn tính năng | Kiểm tra lại loại tài khoản, nâng cấp Pro nếu cần |
+| ⑤ | Giao diện bị kẹt/đứng | Trình duyệt quá tải | Đóng và mở lại tab, cập nhật trình duyệt |
+
+### Cách reset hoàn toàn và liên hệ hỗ trợ
+Nếu các cách trên không thành công, bạn hãy thử mở chế độ Ẩn danh (Incognito) để kiểm tra. Trong trường hợp vẫn không được, hãy **Hard Reset** trình duyệt (Xóa toàn bộ lịch sử và cookie của trang) hoặc liên hệ đội ngũ hỗ trợ (Support) tại mục Help Center của Anthropic.
+
+---
+
+## Định lý cốt lõi phân tách
+
+### Tại sao cần biết điều này?
+Nhiều người có thói quen "nhồi nhét" toàn bộ yêu cầu vào một prompt duy nhất (Prompt monolith). Điều này khiến AI dễ bị "ngợp", bỏ sót ý và cho ra kết quả kém chất lượng. Định lý phân tách giúp bạn bẻ nhỏ vấn đề để AI xử lý chính xác hơn.
+
+### Nguyên tắc 'Divide and Conquer'
+Thay vì một prompt dài dòng, hãy áp dụng nguyên lý **Divide and Conquer** (Chia để trị). Bằng cách chia nhỏ một nhiệm vụ phức tạp thành nhiều bước, bạn có thể kiểm soát chất lượng từng phần trước khi ghép chúng lại với nhau.
+
+### Sơ đồ minh họa phân tách Prompt
+```mermaid
+flowchart LR
+    A["Prompt lớn<br>(Nhiệm vụ phức tạp)"] --> B["Tách thành<br>3-4 Prompt nhỏ"]
+    B --> C["Xử lý<br>từng phần"]
+    C --> D["Kết hợp<br>kết quả"]
+```
+
+### Bảng so sánh phương pháp Prompt
+
+| # | Tiêu chí | Prompt Monolith (Gộp chung) | Prompt Phân tách (Divide and Conquer) |
+|---|----------|-----------------------------|---------------------------------------|
+| ① | **Kết quả** | Dễ bị chung chung, thiếu chiều sâu | Chi tiết, đầy đủ các ý yêu cầu |
+| ② | **Độ chính xác** | Dễ bỏ sót yêu cầu nhỏ | Rất cao, đáp ứng đúng từng bước |
+| ③ | **Thời gian** | Nhanh lúc đầu nhưng mất công sửa | Tốn thời gian nhập lệnh nhưng ít phải sửa lại |
+
+### Ví dụ thực tế: Viết báo cáo 10 trang
+Thay vì nói: *"Viết cho tôi một báo cáo 10 trang về xu hướng AI năm nay."*
+Hãy tách thành:
+- **Bước 1 (Outline):** Tạo dàn ý chi tiết cho báo cáo.
+- **Bước 2 (Phần 1):** Dựa vào dàn ý, viết phần Giới thiệu và Phân tích thị trường.
+- **Bước 3 (Phần 2):** Viết phần Đánh giá rủi ro và Kết luận.
+- **Bước 4 (Review):** Tổng hợp và chỉnh sửa lại văn phong cho đồng nhất.
+
+### Template phân tách task
+1. **Bước 1 (Phân tích yêu cầu):** Xác định mục tiêu cuối cùng.
+2. **Bước 2 (Chia nhỏ):** Liệt kê các phần cần làm.
+3. **Bước 3 (Thực thi tuần tự):** Lần lượt gọi AI xử lý từng phần.
+4. **Bước 4 (Ghép nối):** Ráp các phần lại thành sản phẩm hoàn chỉnh.
+
+> [!TIP]  
+> **3 Mẹo phân tách hiệu quả:**  
+> - Luôn yêu cầu AI tạo Dàn ý (Outline) trước khi viết nội dung chi tiết.  
+> - Xác nhận lại kết quả của từng bước trước khi đi tiếp.  
+> - Đưa kết quả bước trước làm ngữ cảnh (Context) cho prompt tiếp theo.
 
 ---
 
